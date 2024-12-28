@@ -29,8 +29,7 @@ const userSchema = new mongoose.Schema({
         required:true,
     },
     coverImage:{
-        type:String,
-        required:true
+        type:String
     },
     password:{
         type:String,
@@ -38,7 +37,6 @@ const userSchema = new mongoose.Schema({
     },
     refreshToken:{
         type:String,
-        required:true
     },
     watchHistory:[
         {

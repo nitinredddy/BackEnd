@@ -6,40 +6,40 @@ import { ApiResponse } from "../utils/apiResponse.js";
 
 const registerUser = asyncHandler( async (req,res) => {
     const {fullName,email,username,password} = req.body;
-    console.log("email",email)
 
     if(
         [fullName,email,username,password].some((field)=>field?.trim()==="")
     ){
         throw new ApiError(400,"All fields are required.")
     }
-    const existingUser = User.findOne({
+    const existingUser = await User.findOne({
         $or:[{username},{email}]
     })
     if(existingUser){
         throw new ApiError(409,"User with email or username already exists")
     }
-
-    const avatarLocalPath = req.files?.avatar[0]?.path;
-    const coverLocalPath = req.files?.coverImage[0]?.path;
+    const avatarLocalPath = req.files?.avatar?.[0]?.path;
+    const coverLocalPath = req.files?.coverImage?.[0]?.path;
 
     if(!avatarLocalPath){
         throw new ApiError(400,"Avatar is required")
     }
 
     const avatar = await uploadCloudinary(avatarLocalPath)
-    const cover = await uploadCloudinary(coverLocalPath)
+    const coverImage = await uploadCloudinary(coverLocalPath)
 
     if(!avatar){
         throw new ApiError(400,"Avatar is required")
     }
+    
+
     
     const user = await User.create({
         username:username.toLowerCase(),
         email:email.toLowerCase(),
         fullName,
         avatar:avatar.url,
-        coverImage:coverImage?.url || "",
+        coverImage:coverImage?.url||"",
         password,
     })
 
