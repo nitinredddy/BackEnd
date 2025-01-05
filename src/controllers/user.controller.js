@@ -4,7 +4,7 @@ import {User} from "../models/user.model.js"
 import {uploadCloudinary} from "../utils/cloudinary.js"
 import { ApiResponse } from "../utils/apiResponse.js";
 import jwt from "jsonwebtoken";
-import { pipeline } from "stream";
+import mongoose from "mongoose";
 
 
 const generateAccessAndRefreshToken = async (userId) => {
@@ -122,7 +122,7 @@ const loginUser = asyncHandler(async (req, res) => {
 })
 
 const logOut = asyncHandler(async (req,res)=>{
-    await User.findByIdAndUpdate(req.user._id,{$set:{refreshToken:undefined}},{new:true}) 
+    await User.findByIdAndUpdate(req.user._id,{$unset:{refreshToken:1}},{new:true}) 
     const options = {
         httpOnly:true,
         secure:true
@@ -300,8 +300,8 @@ const updateUserCoverImage = asyncHandler(async(req,res)=>{
 })
 
 const getUserChannelProfile = asyncHandler(async(req,res)=>{
-    const {username} = req.query
-    console.log(req.query)
+    const {username} = req.params
+    console.log(req.params)
 
     if(!username?.trim()){
         throw new ApiError(400,"username is missing")

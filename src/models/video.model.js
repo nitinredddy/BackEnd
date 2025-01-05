@@ -1,14 +1,14 @@
 import mongoose from 'mongoose'
-import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2"
+import mongooseAggregatePaginate from 'mongoose-aggregate-paginate-v2'
 
 
 const videoSchema = new mongoose.Schema({
     videoFile:{
-        type:String, //cloudinary url
+        type:String,
         required:true
     },
     thumbnail:{
-        type:String, //cloudinary url
+        type:String,
         required:true
     },
     owner:{
