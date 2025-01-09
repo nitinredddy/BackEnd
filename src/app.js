@@ -13,8 +13,18 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.static("public"))
 app.use(cookieParser())
 
+
+
+/*--------------------------------------------------------------------------------------------------------*/
+
+
+
 import userRouter from './routes/user.routes.js'
+import videoRouter from './routes/video.routes.js'
+import tweetRouter from './routes/tweet.routes.js'
 
 app.use('/api/v1/users',userRouter)
+app.use('/api/v1/videos',videoRouter)
+app.use('/api/v1/tweets',tweetRouter)
 
 export { app }
