@@ -25,14 +25,18 @@ const createComment = asyncHandler(async(req,res)=>{
 })
 
 const deleteComment = asyncHandler(async(req,res)=>{
-    const {commentId} = req.params
-    if(!commentId){
-        throw new ApiError(400,"Please provide your commentId")
+    const {videoId} = req.params
+    if(!videoId){
+        throw new ApiError(400,"Please provide your videoId where you have commented")
     }
 
     const comment = await Comment.findOne({
-        _id:commentId
+        video:videoId
     })
+
+    if(!comment){
+        throw new ApiError(400,"You haven't commented anything on this video")
+    }
 
     if(comment.owner.toString()!=req.user._id){
         throw new ApiError(400,"You cannot delete someone else's comment")
@@ -51,6 +55,9 @@ const getAllCommentsOnAVideo = asyncHandler(async(req,res)=>{
     }
 
     const getAllComments = await Video.aggregate([
+        {
+            $match:{_id:mongoose.Types.ObjectId(videoId)}
+        },
         {
             $lookup:{
                 from:"comments",
@@ -85,31 +92,30 @@ const getAllCommentsOnAVideo = asyncHandler(async(req,res)=>{
 })
 
 const updateComment = asyncHandler(async(req,res)=>{
-    const {commentId} = req.params
+    const {videoId} = req.params
     const currentUser = req.user._id
     const {newContent} = req.body
 
-    if(!commentId){
-        throw new ApiError(400,"Please provide a commentId")
+    if(!videoId){
+        throw new ApiError(400,"Please provide a videoId where you have commented")
     }
 
-    const getComment = await Comment.findOne({
-        _id:commentId
-    })
-    if(!getComment){
-        throw new ApiError(400,"There was some error while finding the comment")
+    if(!newContent || typeof newContent!=="string" || newContent.trim()===""){
+        throw new ApiError(400,"Please provide a valid new comment for the new comment")
     }
 
-    if(getComment.owner.toString()!=currentUser){
-        throw new ApiError(400,"You can only change comments made by yourself")
-    }
-
-    const updatedComment = await Comment.findByIdAndUpdate(commentId,{
-        content:newContent
-    })
+    const updatedComment = await Comment.findOneAndUpdate(
+        {
+            video:videoId,
+            owner:currentUser
+        },
+        {
+            content:newContent
+        }
+    )
 
     if(!updatedComment){
-        throw new ApiError(400,"There was some error while updating the comment")
+        throw new ApiError(400,"There is no comment by you on this video")
     }
 
     return res
