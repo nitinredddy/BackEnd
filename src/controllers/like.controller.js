@@ -80,5 +80,35 @@ const toggleLikeOnTweets = asyncHandler(async(req,res)=>{
     }
 })
 
+const toggleLikeOnComments = asyncHandler(async(req,res)=>{
+    const {commentId} = req.params
+    const userLiking = req.user._id
+    if(!commentId){
+        throw new ApiError(400,"Please provide a commentId")
+    }
+    const likeOnComment = await Like.findOne(
+        {
+            comment:commentId,
+            likedBy:userLiking
+        }
+    )
 
-export {toggleLikeOnVideo,toggleLikeOnTweets}
+    if(likeOnComment){
+        await likeOnComment.deleteOne()
+        return res
+        .status(200)
+        .json(new ApiResponse(200,likeOnComment,"comment unliked"))
+    }
+    else{
+        const newLike = await Like.create({
+            comment:commentId,
+            likedBy:userLiking
+        })
+        return res
+        .status(200)
+        .json(new ApiResponse(200,newLike,"comment Liked"))
+    }
+})
+
+
+export {toggleLikeOnVideo,toggleLikeOnTweets,toggleLikeOnComments}
