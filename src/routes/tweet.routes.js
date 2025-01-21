@@ -1,7 +1,6 @@
 import { Router } from "express";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
 import { deleteTweet, publishATweet,updateTweet,getAllTweets } from "../controllers/twitter.controller.js";
-import { get } from "mongoose";
 
 
 const router = Router();
