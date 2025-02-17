@@ -1,0 +1,1072 @@
+{
+	"info": {
+		"_postman_id": "b53b1306-5d1d-425e-802b-e53048635eb4",
+		"name": "YouTweet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39620156"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "user/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fullName",
+									"value": "Ravi",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "ravireddy",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "ravi@123",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "p.ravi@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "postman-cloud:///1efc46dc-f02e-4ed0-8271-98e55699cfd5"
+								},
+								{
+									"key": "coverImage",
+									"type": "file",
+									"src": "postman-cloud:///1efc468c-c10f-4140-b9a2-2dfb88a58378"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/users/register",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"nitinreddy2\",\n    \"password\":\"Billionaire@2035\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/users/login",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/users/logout",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/refresh-token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/users/refresh-token",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/update-avatar",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "postman-cloud:///1efc468e-4fa0-4c50-b0ac-fde7f250681d"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/users/update-avatar",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"update-avatar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/change-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "oldPassword",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/users/change-password",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/update-account-details",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"pradeepreddy\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/users/update-account-details",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"update-account-details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/update-cover-image",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "coverImage",
+									"type": "file",
+									"src": "postman-cloud:///1efc4657-5b26-4020-9d50-db600d7c466f"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/users/update-cover-image",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"update-cover-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/get-user",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "user/c/:username",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"nitinredddy\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/users/c/:username",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"c",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": "nitinredddy"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "video",
+			"item": [
+				{
+					"name": "video/publish-video",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Introduction",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Introduction",
+									"type": "text"
+								},
+								{
+									"key": "videoFile",
+									"type": "file",
+									"src": "/Users/nitinreddy/Desktop/trunk.png"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "postman-cloud:///1efc468c-c10f-4140-b9a2-2dfb88a58378"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/videos/publish-video",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"videos",
+								"publish-video"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "videos/update-video/:videoId",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Hi there i am a new user",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "I am going to show you how to murder",
+									"type": "text"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/videos/update-video/:videoId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"videos",
+								"update-video",
+								":videoId"
+							],
+							"variable": [
+								{
+									"key": "videoId",
+									"value": "677aaf42dc848ab28ac3a616"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "videos/get-video/:videoId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/videos/get-video/:videoId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"videos",
+								"get-video",
+								":videoId"
+							],
+							"variable": [
+								{
+									"key": "videoId",
+									"value": "677aaf42dc848ab28ac3a616"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "videos/delete-video/:videoId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/videos/delete-video/:videoId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"videos",
+								"delete-video",
+								":videoId"
+							],
+							"variable": [
+								{
+									"key": "videoId",
+									"value": "677c07e49f017c214067bc06"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "videos/get-user-videos/:username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/videos/get-user-videos/:username",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"videos",
+								"get-user-videos",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": "nitinreddy2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tweet",
+			"item": [
+				{
+					"name": "tweets/publish-tweet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tweetContent\":\"My name is nitin Reddy\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/tweets/publish-tweet",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"tweets",
+								"publish-tweet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tweets/update-tweet",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"updatedTweetContent\":\"Youtube is my favourite platform\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/tweets/update-tweet/:tweetId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"tweets",
+								"update-tweet",
+								":tweetId"
+							],
+							"variable": [
+								{
+									"key": "tweetId",
+									"value": "677d28364de26ccfd1b3952e"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tweets/delete-tweet/:tweetId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/tweets/delete-tweet/:tweetId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"tweets",
+								"delete-tweet",
+								":tweetId"
+							],
+							"variable": [
+								{
+									"key": "tweetId",
+									"value": "677d28364de26ccfd1b3952e"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tweets/get-all-tweets/:username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/tweets/get-all-tweets/:username",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"tweets",
+								"get-all-tweets",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": "nitinreddy2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "subscriptions",
+			"item": [
+				{
+					"name": "subscriptions/get-subscribers/:userId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/subscriptions/get-channel-subscribers/:channelId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"subscriptions",
+								"get-channel-subscribers",
+								":channelId"
+							],
+							"variable": [
+								{
+									"key": "channelId",
+									"value": "676fc9ab6c0b7548278a97d3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "subscriptions/subscribe/:channelId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/subscriptions/subscribe/:channelId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"subscriptions",
+								"subscribe",
+								":channelId"
+							],
+							"variable": [
+								{
+									"key": "channelId",
+									"value": "676fc9ab6c0b7548278a97d3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "subscriptions/get-channel-subscriberTo/:channelId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/subscriptions/get-channel-subscriberTo/:channelId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"subscriptions",
+								"get-channel-subscriberTo",
+								":channelId"
+							],
+							"variable": [
+								{
+									"key": "channelId",
+									"value": "676fc5ed6c0b7548278a97ce"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "like",
+			"item": [
+				{
+					"name": "likes/:videoId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/likes/video/:videoId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"likes",
+								"video",
+								":videoId"
+							],
+							"variable": [
+								{
+									"key": "videoId",
+									"value": "677c079c5dda5b05dac41101"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "likes/:tweetId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/likes/tweet/:tweetId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"likes",
+								"tweet",
+								":tweetId"
+							],
+							"variable": [
+								{
+									"key": "tweetId",
+									"value": "677d36e6a517b8d211853555"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comment",
+			"item": [
+				{
+					"name": "comments/create-comment/:videoId",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\":\"I really loved this video.Keep doing the good work\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/comments/create-comment/:videoId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"comments",
+								"create-comment",
+								":videoId"
+							],
+							"variable": [
+								{
+									"key": "videoId",
+									"value": "677c079c5dda5b05dac41101"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "comments/delete-comment/:videoId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/comments/delete-comment/:videoId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"comments",
+								"delete-comment",
+								":videoId"
+							],
+							"variable": [
+								{
+									"key": "videoId",
+									"value": "677c079c5dda5b05dac41101"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "comments/get-comments/:videoId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/comments/get-comments/:videoId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"comments",
+								"get-comments",
+								":videoId"
+							],
+							"variable": [
+								{
+									"key": "videoId",
+									"value": "677c079c5dda5b05dac41101"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "comments/update-comment/:commentId",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"newContent\":\"Hi this is an updated comment version 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/comments/update-comment/:videoId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"comments",
+								"update-comment",
+								":videoId"
+							],
+							"variable": [
+								{
+									"key": "videoId",
+									"value": "677c079c5dda5b05dac41101"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "playlist",
+			"item": [
+				{
+					"name": "playlists/create-playlist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"Hi,this is my new playlist on DSA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/playlists/create-playlist",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"playlists",
+								"create-playlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "playlists/add-videos-to-playlist",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"videoId\":\"677c079c5dda5b05dac41101\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/playlists/add-video-to-playlist/:playlistTitle",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"playlists",
+								"add-video-to-playlist",
+								":playlistTitle"
+							],
+							"variable": [
+								{
+									"key": "playlistTitle",
+									"value": "Hi,this is my new playlist on DSA"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "playlists/find-playlist/:playlistTitle",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/playlists/find-playlist/:playlistTitle",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"playlists",
+								"find-playlist",
+								":playlistTitle"
+							],
+							"variable": [
+								{
+									"key": "playlistTitle",
+									"value": "Hi,this is my new playlist on DSA"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "playlists/get-user-playlists/:userId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/playlists/get-user-playlists/:userId",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"playlists",
+								"get-user-playlists",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "676fc5ed6c0b7548278a97ce"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "playlists/remove-videos-from-playlist/:",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"videoId\":\"677c079c5dda5b05dac41101\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/playlists/remove-videos-from-playlist/:playlistTitle",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"playlists",
+								"remove-videos-from-playlist",
+								":playlistTitle"
+							],
+							"variable": [
+								{
+									"key": "playlistTitle",
+									"value": "Hi,this is my new playlist on DSA"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "playlists/delete-playlist/:playlistTitle",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/playlists/delete-playlist/:playlistTitle",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"playlists",
+								"delete-playlist",
+								":playlistTitle"
+							],
+							"variable": [
+								{
+									"key": "playlistTitle",
+									"value": "Hi,this is my new playlist on DSA"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "playlists/update-playlist/:playlistTitle",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"I Have changed the name of the playlist for testing purposes\",\n    \"description\":\"I am very glad that you have been so patient all this while.Thanks for your cooperation\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/playlists/update-playlist/:playlistTitle",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"playlists",
+								"update-playlist",
+								":playlistTitle"
+							],
+							"variable": [
+								{
+									"key": "playlistTitle",
+									"value": "Hi,this is my new playlist on DSA"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dashboard",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
